@@ -13,7 +13,7 @@ export default function Home() {
                             <input type="text" class="form-control" id="exampleInputEmail1"/>
                         </div>
                         <div class="mb-3">
-                            <label for="room-name" class="form-label">Password</label>
+                            <label for="room-name" class="form-label">Room Code</label>
                             <input type="text" class="form-control" id="room-name" />
                         </div>
                             <button type="submit" className="btn btn-primary btn-lg">Submit</button>
