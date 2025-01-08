@@ -1,8 +1,5 @@
 .App {
-    background-image: url("/Users/areeb/College/UTD/Spring 2024/react-project/client/public/beautiful-color-gradients-backgrounds-091-eternal-constance.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background: linear-gradient(135deg, #a19f9d 0%, #3c24da 100%);
 }
 
 h1 {

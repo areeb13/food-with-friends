@@ -19,6 +19,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
+          <Route path="/home"  element={<Home />} />
+          <Route path="/lobby" element={<Lobby />} />
+          <Route path="/restaurants" element={<Restaurants />} />
+          <Route path="/winner" element={<Winner />} />
         </Routes>
       </BrowserRouter>
     </div>

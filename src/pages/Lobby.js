@@ -1,22 +1,57 @@
 //this will have title of room code & list of players in lobby
-import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Lobby({ room }) {
-    return (
-        <>
-            <div className="d-flex justify-content-center align-items-center vh-100">
-                <div className="container text-center border rounded shadow p-4" style={{ maxWidth: "33.33%" }}>
-                    <h1 className="mb-4">LOBBY: {room}</h1>
-                    <ul className="list-group mb-4">
-                        <li className="list-group-item">Default Player 1</li>
-                        <li className="list-group-item">Default Player 2</li>
-                        <li className="list-group-item">Default Player 3</li>
-                        <li className="list-group-item">Default Player 4</li>
-                        <li className="list-group-item">Default Player 5</li>
-                    </ul>
-                    <button type="submit" className="btn btn-primary btn-lg">Start</button>
-                </div>
-            </div>
-        </>
-    );
+  const navigate = useNavigate();
+  const names = ["joe", "jim", "bill"];
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleStart = async (event) => {
+    try {
+      //get API stuff
+
+      navigate("/restaurants");
+    } catch (error) {
+      setError("Unable to Continue, Try Again!");
+    }
+  };
+
+  return (
+    <div className="gradient-bg min-vh-100 d-flex align-items-center justify-content-center p-4">
+      <div
+        className="bg-white rounded-4 shadow p-4 p-md-5"
+        style={{ maxWidth: "450px", width: "100%" }}
+      >
+        <h1 className="text-black text-center mb-4 fw-bold">LOBBY: {room}</h1>
+        <div className="mb-4">
+        
+        {/* List of lobby members */}
+          <ul className="list-group">
+            {names.map((name) => (
+              <li
+                key={name}
+                className="list-group-item text-center mb-3 border-2 border-purple fw-bold"
+                style={{ borderColor: "#6f42c1" }}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="text-center">
+          <button
+            type="submit"
+            className="btn btn-primary btn-lg"
+            onClick={handleStart}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Start"}
+          </button>
+          {error && <p className="text-danger">{error}</p>}
+        </div>
+      </div>
+    </div>
+  );
 }
