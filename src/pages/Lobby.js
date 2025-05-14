@@ -9,12 +9,17 @@ export default function Lobby({ room }) {
   const [error, setError] = useState("");
 
   const handleStart = async (event) => {
-    try {
-      //get API stuff
+    setLoading(true);
+    setError("");
 
+    try {
+
+      // If successful, navigate to restaurants page
       navigate("/restaurants");
     } catch (error) {
       setError("Unable to Continue, Try Again!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,8 +31,7 @@ export default function Lobby({ room }) {
       >
         <h1 className="text-black text-center mb-4 fw-bold">LOBBY: {room}</h1>
         <div className="mb-4">
-        
-        {/* List of lobby members */}
+          {/* List of lobby members */}
           <ul className="list-group">
             {names.map((name) => (
               <li
